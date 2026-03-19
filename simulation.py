@@ -1,3 +1,16 @@
+import random
+
+SIMULATION_LENGTH = 365
+BURGER = 1
+BURGER_AND_ICE_CREAM = 2
+BURGER_PRICE = 10
+BURGER_COST = 2
+ICE_CREAM_PRICE = 2
+ICE_CREAM_COST = 0.10
+MACHINE_BROKEN_CHANCE = 0.10
+
+
+
 # burger shop
 
 '''
@@ -39,6 +52,28 @@ M/M/1 model
     service times
     
 '''
+
+class Customer:
+    def __init__(self):
+        self.time = 0
+
+def did_machine_break():
+    num = random.random()
+    if num < MACHINE_BROKEN_CHANCE:
+        return True
+    return False
+
+def get_customer_order(is_machine_broken):
+    if is_machine_broken:
+        return BURGER
+    return random.choice([BURGER, BURGER_AND_ICE_CREAM])
+
+def get_arrival_time(lam):
+    return random.expovariate(lam)
+
+def get_service_time(lam):
+    return random.expovariate(lam)
+
 def main():
     pass
 
