@@ -221,11 +221,6 @@ def mms_one_day_simulation(arrival_lam, cashier_lam, burger_lam, ice_cream_lam, 
 def build_mm1_queue(arrival_lam, cashier_lam, burger_lam, ice_cream_lam, num_cashiers, is_machine_broken):
     queues = [[] for i in range(num_cashiers)]
     time = 0
-    cashier = None
-    for i in queues:
-        while len(i) > 0 or cashier != None:
-            pass
-
 
     while time < DAY:
         rush_hour = is_rush_hour(time)
@@ -361,7 +356,7 @@ def main():
         queues_time = compute_average_of_averages([compute_average_time(queues[i]) for i in range(365)])
         queues_profit = sum([compute_profit(queues[i], 20) for i in range(365)])
 
-        print(f"Average time customer spends in system: {queues_time}, profit over year: {queues_profit}")
+        print(f"Average time customer spends in system: {queues_time} minutes, profit over year: ${queues_profit}")
         print()
 
     else:
@@ -382,7 +377,7 @@ def main():
         queues_time = compute_average_of_averages([compute_average_time(queues[i]) for i in range(365)])
         queues_profit = sum([compute_profit(queues[i], 20) for i in range(365)])
 
-        print(f"Average time customer spends in system: {queues_time}, profit over year: {queues_profit}")
+        print(f"Average time customer spends in system: {queues_time} minutes, profit over year: ${queues_profit}")
         print()
 
 if __name__ == "__main__":
