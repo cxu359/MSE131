@@ -20,55 +20,7 @@ FALL_START = 265
 WINTER_START = 355
 MINIMUM_WAGE = 17.60
 
-
-
-# burger shop
-
-'''
-Assumptions
-
-Burger: price $10, cost $2, profit $8
-Ice cream: price $2, cost $0.10, profit $1.90
-50/50 chance of customer ordering burger or burger and ice cream, nobody orders only ice cream
-10% of days the ice cream machine is broken and everybody orders only burgers
-Day goes from 7:00 - 22:00, rush hours 7:00 - 10:00, 12:00 - 14:00, 18:00 - 20:00, double customer rate
-
-Baseline values:
-3 minute average burger service
-1 minute average ice cream service
-0.5 minutes average cashier
-3 cashiers, 5 kitchen staff, each staff can take/prepare 1 order at a time
-2 customers/minute usually, 4 customers/minute rush hours
-M/M/1 model
-
-'''
-
-'''
-1.  customer -> line -> cashier -> table
-    food -> kitchen staff -> table
-
-    measure average wait time and profit per day
-
-2.  burger / ice cream
-    rush hours between 7:00 - 10:00, 12:00 - 14:00, 18:00 - 20:00
-    ice cream machine broken 10% of the times
-    seasonal demand
-    limited workers
-
-3.  single vs separate lines
-    different worker distribution
-    different number of workers
-
-    arrival rates
-    service times
-    
-'''
-
-'''
-class to store each customer's time in system, when they enter queue for cashier and food,
-what their order is, how much time is left for their interaction with cashier and how
-much time is left for their food to be prepared
-'''
+# class to store variables related to each customer
 class Customer:
     def __init__(self, cashier_time, start_time, order, cook_time):
         self.time_in_system = 0
