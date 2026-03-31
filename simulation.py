@@ -56,11 +56,11 @@ def get_customer_order(is_machine_broken):
 def get_arrival_time(lam):
     return random.expovariate(lam)
 
-# exponential distribution for service time
+# exponential distribution for cashier service time
 def get_service_time(lam):
     return random.expovariate(lam)
 
-#
+# exponential distribution for total service time
 def get_order_time(burger_lam, ice_cream_lam, order):
     return random.expovariate(burger_lam) + order * random.expovariate(ice_cream_lam)
 
